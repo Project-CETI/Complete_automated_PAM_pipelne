@@ -21,7 +21,9 @@ function Main(File_directory,File_name)
      D_Threshold=1.42;           % set the click presence detection threshold
      c=1520;                     % Measured sound speed (in [m/sec])
      Receiver_Depth=15;          % Hydrophone depth (in [m])
-     Tag_flag=0;                 % set 1 for tag recording | set 0 -otherwise
+     [~, lastFolder] = fileparts(File_directory);
+     Tag_flag = startsWith(lastFolder, 'wt');      % set 1 for tag recording | set 0 -otherwise
+
      if ~Tag_flag
           SNR_thresh=52;              % Min SNR threshold [in dB] for remote recordings
      else
